@@ -7,6 +7,7 @@ As principais adições são:
   * Preferência pelo modelo "Main function"
   * Campos privados em cada classe
   * Propriedades e tratamento de erros para os Campos
+
 O que pretendo ainda adicionar:
   * Menu em linha de comando simples
   * Implementação de arquivos JSON
