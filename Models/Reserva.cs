@@ -1,60 +1,81 @@
-namespace DesafioProjetoHospedagem.Models
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Sistema.Models
 {
     public class Reserva
     {
-        public List<Pessoa> Hospedes { get; set; }
-        public Suite Suite { get; set; }
-        public int DiasReservados { get; set; }
-
-        public Reserva() { }
+		List<Pessoa>? _hospedes;
+		Suite? _suite;
+		int _diasReservados;
 
         public Reserva(int diasReservados)
         {
-            DiasReservados = diasReservados;
-        }
+			DiasReservados = diasReservados;
+		}
 
-        public void CadastrarHospedes(List<Pessoa> hospedes)
+		// Propriedades
+
+        public List<Pessoa> Hospedes
         {
-            // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
-            // *IMPLEMENTE AQUI*
-            if (true)
-            {
-                Hospedes = hospedes;
-            }
-            else
-            {
-                // TODO: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
-                // *IMPLEMENTE AQUI*
-            }
-        }
+			get => _hospedes;
+			set => _hospedes = value;
+		}
 
-        public void CadastrarSuite(Suite suite)
+        public Suite Suite
         {
-            Suite = suite;
-        }
+			get => _suite;
+			set => _suite = value;
+		}
 
-        public int ObterQuantidadeHospedes()
+        public int  DiasReservados
         {
-            // TODO: Retorna a quantidade de hóspedes (propriedade Hospedes)
-            // *IMPLEMENTE AQUI*
-            return 0;
-        }
+			get => _diasReservados;
+			set 
+			{
+				if (value <= 0)
+				{
+					_diasReservados = 0;
+					throw new ArgumentException("Valores informados inválidos! Valores negativos ou nulos não são aceitos.");
+				}
+				_diasReservados = value;
+			}
+		}
 
-        public decimal CalcularValorDiaria()
-        {
-            // TODO: Retorna o valor da diária
-            // Cálculo: DiasReservados X Suite.ValorDiaria
-            // *IMPLEMENTE AQUI*
-            decimal valor = 0;
+		public void CadastrarHospedes(List<Pessoa> hospedes)
+		{
+			if (hospedes.Count <= Suite.Capacidade)
+			{
+				Hospedes = hospedes;
+			}
+			else
+			{
+				throw new ArgumentOutOfRangeException("A suíte não suporta a quantidade de hospedes informada!");
+			}
+		}
 
-            // Regra: Caso os dias reservados forem maior ou igual a 10, conceder um desconto de 10%
-            // *IMPLEMENTE AQUI*
-            if (true)
-            {
-                valor = 0;
-            }
+		public void CadastrarSuite(Suite s) => Suite = s;
 
-            return valor;
-        }
-    }
+		public int ObterQuantidadeHospedes() => Hospedes.Count;
+
+		public decimal CalcularValorDiaria()
+		{
+			decimal valor = (DiasReservados * Suite.ValorDiaria);
+
+			if (DiasReservados >= 10)
+			{
+				valor -= valor * 0.10M;
+				return valor;
+			}
+			return valor;
+		}
+		
+		// Métodos 
+		// DONE: cadastrar hospedes (lista hospedes)
+		// DONE: cadastrar suite (suite)
+		// DONE: obter quantidade de hospedes
+		// DONE: calcular valor da diaria
+	}
 }

@@ -1,21 +1,39 @@
-namespace DesafioProjetoHospedagem.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-public class Pessoa
+namespace Sistema.Models
 {
-    public Pessoa() { }
-
-    public Pessoa(string nome)
+    public class Pessoa
     {
-        Nome = nome;
-    }
+        private string? _nome;
+        private string? _sobrenome;
 
-    public Pessoa(string nome, string sobrenome)
-    {
-        Nome = nome;
-        Sobrenome = sobrenome;
-    }
+        public Pessoa(string nome)
+        {
+			Nome = nome;
+			Sobrenome = "";
+		}
 
-    public string Nome { get; set; }
-    public string Sobrenome { get; set; }
-    public string NomeCompleto => $"{Nome} {Sobrenome}".ToUpper();
+        public Pessoa(string nome, string sobrenome)
+        {
+			Nome = nome;
+			Sobrenome = sobrenome;
+		}
+
+        public string Nome
+        {
+            get => _nome;
+            set => _nome = value;
+        }
+
+        public string? Sobrenome
+        {
+			get => _sobrenome;
+			set => _sobrenome = value;
+        }
+
+		public string GetNomeCompleto() => $"{Nome} {Sobrenome}".ToUpper();
+	}
 }
