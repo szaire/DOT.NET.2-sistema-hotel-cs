@@ -1,0 +1,24 @@
+[
+  {
+    "Hospedes": [
+      {
+        "Nome": "Samuel",
+        "Sobrenome": "Zaire"
+      },
+      {
+        "Nome": "Pedro",
+        "Sobrenome": "Quinhas"
+      },
+      {
+        "Nome": "Batavere",
+        "Sobrenome": "Lazare"
+      }
+    ],
+    "Suite": {
+      "TipoSuite": "Premium",
+      "Capacidade": 3,
+      "ValorDiaria": 200.00
+    },
+    "DiasReservados": 10
+  }
+]

@@ -11,9 +11,11 @@ namespace Sistema.Models
 		Suite? _suite;
 		int _diasReservados;
 
-        public Reserva(int diasReservados)
+        public Reserva(int diasReservados, Suite suite, List<Pessoa> hospedes)
         {
 			DiasReservados = diasReservados;
+			Suite = suite;
+			Hospedes = hospedes;
 		}
 
 		// Propriedades
