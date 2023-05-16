@@ -1,6 +1,17 @@
 # DIO - Trilha .NET - Explorando a linguagem C#
 www.dio.me
 
+## Branch My-Main
+Essa branch é reservada à versão alternativa e extendida do projeto implementado do zero antes de fazer o fork.
+As principais adições são:
+  * Preferência pelo modelo "Main function"
+  * Campos privados em cada classe
+  * Propriedades e tratamento de erros para os Campos
+
+O que pretendo ainda adicionar:
+  * Menu em linha de comando simples
+  * Implementação de arquivos JSON
+
 ## Desafio de projeto
 Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de explorando a linguagem C#, da trilha .NET da DIO.
 
